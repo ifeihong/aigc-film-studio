@@ -2,7 +2,7 @@
 name: aigc-film-studio
 description: "This skill should be used when producing AI-generated films, short dramas (短剧), comic dramas (漫剧), short videos (短视频), or video clips — for models like Nano Banana, GPT Image, Seedream, Seedance, Kling, Veo. It is an end-to-end AIGC production system: it takes a script or idea and produces character/location/prop asset sheets, shotlists, structured video & image prompts (CINEDANCE / LIRA), living performance writing (ACTING), the Style Prefix, GEO spatial locking, the SCALE LAW, and QA. Trigger on requests to: make an AI film / short-drama / comic-drama / short-video, write video/image prompts, turn a script into a shotlist, keep a character consistent across shots, parse 人物/场景/道具, generate 画面/视频, or fix consistency / teleport / drift / dead-face problems."
 description_zh: "AIGC 电影/短剧/漫剧/短视频全流程制片系统：从剧本或想法出发，解析人物/场景/道具，生成资产表、分镜表与视频/图像提示词（CINEDANCE/LIRA/ACTING），支持外部工具（Seedance/Kling/Veo 等），含一致性锁定（GEO/Style Prefix/SCALE LAW）与质检。触发于：AI 拍电影/短剧/漫剧/短视频、写视频/图像提示词、脚本转分镜、角色一致性、生成画面/视频、修复换脸/瞬移/死脸/漂移。"
-version: 3.1.0
+version: 3.2.0
 tags: [AIGC, AI电影, AI短剧, 漫剧, 短视频, 竖屏视频, 视频生成, 图像生成, 提示词工程, 角色一致性, 分镜, 脚本转视频, Seedance, 文生视频, 图生视频, AI-filmmaking, short-drama, prompt-engineering, character-consistency, shotlist]
 keywords: [AI电影制作, AI短剧制作, 短视频生成, 抖音视频, 视频号视频, 视频提示词, 图像提示词, 角色一致性, 人物场景道具解析, 脚本转分镜, AIGC制片, video prompt, image prompt, character consistency, AI film pipeline]
 agent_created: true

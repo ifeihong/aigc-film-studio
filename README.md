@@ -1,6 +1,6 @@
 # AIGC Film Studio — AI 影视制片系统 | 视频提示词工程 · 角色一致性 · AI 电影/短剧/漫剧/短视频
 
-[![Version](https://img.shields.io/badge/version-3.1.0-blue)]()
+[![Version](https://img.shields.io/badge/version-3.2.0-blue)]()
 [![Skill Type](https://img.shields.io/badge/type-AIGC%20Film%20Production-purple)]()
 [![Languages](https://img.shields.io/badge/languages-Multi%20%2F%20ZH%20%2F%20EN%20%2F%20JA-brightgreen)]()
 [![Models](https://img.shields.io/badge/models-Seedance%202.5%20%7C%20Kling%203.0%20%7C%20Veo%203%20%7C%20GPT%20Image%202-orange)]()
