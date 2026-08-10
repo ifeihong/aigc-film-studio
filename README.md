@@ -28,7 +28,8 @@
 - [常见问题 FAQ](#常见问题-faq)
 - [兼容性说明](#兼容性说明)
 - [关键词索引](#关键词索引)
-- [更新日志](#更新日志)
+- [许可协议](#许可协议)
+- [版权声明](#版权声明)
 
 ---
 
@@ -101,7 +102,7 @@ AI 导演在 12 阶段管线中位于阶段 0.5（需求澄清后、剧本解析
 ### 提示词工程三体系
 
 - **CINEDANCE 视频提示词系统**：16-block 刚性骨架（SCENE CONTEXT → ACTIVE REFERENCES → LOCATION MAP → FIRST FRAME → FORMAT → OPTICS → CAMERA → ACTION TIMING → PHYSICS → LIGHTING → AUDIO → CHARACTER ACTING → STYLE → QUALITY → POSITIVE CONSTRAINTS）+ 镜头决策树 + 光学/物理/光照锁定 + 无声 QA，直出可投产的 Seedance / Kling / Veo 提示词
-- **LIRA 图像提示词优化**：4-D 方法论（DECONSTRUCT → DIAGNOSE → DEVELOP → DELIVER）+ 模型路由（Soul 2.0 / Soul Cinema / NBP / Seedream 5.0 Pro / GPT Image 2）+ 防失败 10 条 + 手术式编辑模板
+- **LIRA 图像提示词优化**：4-D 方法论（DECONSTRUCT → DIAGNOSE → DEVELOP → DELIVER）+ 模型路由（NBP / Seedream 5.0 Pro / GPT Image 2）+ 防失败 10 条 + 手术式编辑模板
 - **ACTING 表演写作**：核心公理「表演 = 压力下的行为」+ 五支柱（目标/障碍/战术/节拍/潜台词）+ 眼生命 + 行为主档 + 坏表演图鉴与 0-5 量表
 
 ### 交付物体系
@@ -207,7 +208,7 @@ AI 导演在 12 阶段管线中位于阶段 0.5（需求澄清后、剧本解析
 | 需求关键词 | 加载文档 |
 |---|---|
 | 视频提示词 / Seedance 提示词 / 视频 prompt | `references/10-cinedance-video-prompt.md` |
-| 图像提示词 / 画图 prompt / Soul / NBP 提示词 | `references/12-lira-image-prompt.md` |
+| 图像提示词 / 画图 prompt / NBP 提示词 | `references/12-lira-image-prompt.md` |
 | 表演 / 演技 / 人物僵硬 / 死脸 | `references/11-acting-performance.md` |
 | 换脸 / 一致性 / 瞬移 / 跳轴 | `references/20-qa-checklists.md` + `assets/templates/geo-spatial-layout.md` |
 | 全流程 / 制片流程 / 怎么做 | `references/00-overview-handbook.md` + `references/01-pipeline-runbook.md` |
@@ -320,8 +321,6 @@ AI 导演在 12 阶段管线中位于阶段 0.5（需求澄清后、剧本解析
 
 | 模型 | 厂商 | 最擅长 | 典型用途 |
 |---|---|---|---|
-| **Soul 2.0** | — | 角色生成、Soul ID 跨生成锁定同一张脸 | 角色选角表、肖像 |
-| **Soul Cinema** | — | 电影级质感、自然颗粒、支持 21:9 | 地点/环境/电影帧 |
 | **GPT Image 2** | OpenAI | 极致照片真实感、提示词遵循、最细局部微编辑 | 地点视角变更、局部手术 |
 | **Nano Banana Pro (NBP)** | Google | 帧编辑（永远首选）、文字渲染、道具 | 帧编辑、道具生成、文字渲染 |
 | **Nano Banana 2** | Google | 文字渲染、角色一致性、信息图 | 信息图、文字密集图 |
@@ -331,9 +330,9 @@ AI 导演在 12 阶段管线中位于阶段 0.5（需求澄清后、剧本解析
 
 ### 体裁适配
 
-| 维度 | 横屏电影感 | 横屏短剧 | 漫剧 | 竖屏短视频 |
+| 维度 | 电影 | 短剧 | 漫剧 | 短视频 |
 |---|---|---|---|---|
-| 画幅 | 16:9 | 16:9 | 16:9 或 9:16 | 9:16 |
+| 画幅 | 16:9 | 16:9 或 9:16 | 16:9 或 9:16 | 9:16 |
 | 单镜时长 | 8-12s | 5-10s | 4-8s | 3-8s，前 3 秒必钩子 |
 | Style Prefix | 原版逐字 | 原版逐字 | 漫画风格变体，保留三条根 | 可降格，保留三条根 |
 | 首帧 | wide establishing | wide establishing | 场景全景或人物半身 | medium portrait（非传统 wide） |
@@ -541,7 +540,7 @@ AI 助手：
 <details>
 <summary><b>提示词能直接用在哪些模型？</b></summary>
 
-视频——Seedance 2.5/2.0、Kling 3.0/Omni、Veo 3、Soul Cinema；图像——Soul 2.0、Nano Banana Pro/2、GPT Image 2、Seedream 5.0 Pro。不同模型的路由规则见 `references/12-lira-image-prompt.md` 和 `references/13-deliverable-system.md`。
+视频——Seedance 2.5/2.0、Kling 3.0/Omni、Veo 3；图像——Nano Banana Pro/2、GPT Image 2、Seedream 5.0 Pro。不同模型的路由规则见 `references/12-lira-image-prompt.md` 和 `references/13-deliverable-system.md`。
 
 </details>
 
@@ -604,9 +603,9 @@ AI 助手：
 | **视频生成** | Seedance 2.5/2.0 | 原生支持（多参考图） | 直接使用 | 最高 |
 | | Kling 3.0/Omni | 图生视频支持 | 直接使用 | 高 |
 | | Veo 3 | 文生+图生支持 | 直接使用 | 高 |
-| **图像生成** | Soul 2.0 / Soul Cinema | Soul ID 锁定 | 直接使用 | 最高 |
-| | Nano Banana Pro/2 | 帧编辑支持 | 直接使用 | 高 |
-| | GPT Image 2 / Seedream 5.0 Pro | 支持 | 直接使用 | 高 |
+| **图像生成** | Nano Banana Pro/2 | 帧编辑支持 | 直接使用 | 高 |
+| | GPT Image 2 | 支持 | 直接使用 | 高 |
+| | Seedream 5.0 Pro | 支持 | 直接使用 | 高 |
 
 > 无多参考图锚点的工具（如 Kling、Veo）：使用图生视频模式 + descriptor 逐字注入，是一致性降级下的最强策略。本 Skill 的 16-block 骨架在任何工具中都保留核心一致性条款。
 
@@ -621,112 +620,22 @@ AI 助手：
 
 ### 中文关键词
 
-AI 电影制作 · AI 短剧制作 · 漫剧制作 · 竖屏短视频 · 抖音视频生成 · 视频号视频 · 文生视频 · 图生视频 · 视频提示词 · 图像提示词 · 角色一致性 · 人物场景道具解析 · 脚本转分镜 · AIGC 制片流程 · 换脸修复 · 镜头一致性 · AI 分镜表 · Seedance 提示词 · 提示词工程 · AI 视频生成 · AI 影视制作 · 短剧制作工具 · 视频提示词模板 · AI 视频质检 · 角色锁定 · 场景一致性 · 跨镜头一致性 · AI 制片系统 · Seedance · Kling 提示词 · Veo 提示词 · 视频生成工作流 · AI 导演 · 分镜脚本 · 一句话转视频 · 标题扩展 · 时长优化 · 视频模型选用 · Nano Banana Pro · Seedream 5.0 Pro · GPT Image 2 · Veo 3 · Soul Cinema
+AI 电影制作 · AI 短剧制作 · 漫剧制作 · 竖屏短视频 · 抖音视频生成 · 视频号视频 · 文生视频 · 图生视频 · 视频提示词 · 图像提示词 · 角色一致性 · 人物场景道具解析 · 脚本转分镜 · AIGC 制片流程 · 换脸修复 · 镜头一致性 · AI 分镜表 · Seedance 提示词 · 提示词工程 · AI 视频生成 · AI 影视制作 · 短剧制作工具 · 视频提示词模板 · AI 视频质检 · 角色锁定 · 场景一致性 · 跨镜头一致性 · AI 制片系统 · Seedance · Kling 提示词 · Veo 提示词 · 视频生成工作流 · AI 导演 · 分镜脚本 · 一句话转视频 · 标题扩展 · 时长优化 · 视频模型选用 · Nano Banana Pro · Seedream 5.0 Pro · GPT Image 2 · Veo 3
 
 ### English Keywords
 
-AI filmmaking · AI short drama · text-to-video · image-to-video · video prompt engineering · image prompt optimization · character consistency · shotlist generation · AIGC film pipeline · Seedance · Kling · Veo 3 · Soul Cinema · Nano Banana Pro · Seedream 5.0 Pro · GPT Image 2 · AI video production · prompt engineering · cross-shot consistency · character drift fix · AI film studio · short video generation · vertical video · AI drama production · video prompt template · AIGC production system · AI director · storyboard generation · video generation workflow · prompt language routing · duration optimization · model selection · SCALE LAW · GEO spatial locking · Style Prefix · CINEDANCE · LIRA · ACTING
+AI filmmaking · AI short drama · text-to-video · image-to-video · video prompt engineering · image prompt optimization · character consistency · shotlist generation · AIGC film pipeline · Seedance · Kling · Veo 3 · Nano Banana Pro · Seedream 5.0 Pro · GPT Image 2 · AI video production · prompt engineering · cross-shot consistency · character drift fix · AI film studio · short video generation · vertical video · AI drama production · video prompt template · AIGC production system · AI director · storyboard generation · video generation workflow · prompt language routing · duration optimization · model selection · SCALE LAW · GEO spatial locking · Style Prefix · CINEDANCE · LIRA · ACTING
 
 ---
 
-## 更新日志
+## 许可协议
 
-### v3.1.0 (2026-08-10)
+本项目采用 [MIT License](LICENSE) 开源协议。
 
-**工具体系与体裁优化**
+## 版权声明
 
-核心变更：
-- **工具列表重排**：统一为 Nano Banana / GPT Image / Seedream / Seedance / Kling / Veo，移除 Soul Cinema / Soul 2.0 从工具列表标题（仍保留在图像模型表中）
-- **体裁扩展**：新增「漫剧」体裁，覆盖 AI 电影、短剧、漫剧、短视频四大类型；体裁适配表新增漫剧列（画幅 16:9 或 9:16、单镜 4-8s、漫画风格变体保留三条根、panel 式构图）
-- **移除内置 VideoGen**：移除所有内置工具（ImageGen / VideoGen）相关介绍、渠道 B 内容、压缩规则，统一为外部工具交付模式
-- **移除即梦/Higgsfield 说明**：移除「Seedance = 即梦」「Higgsfield 是聚合平台」等说明文字
-- **平台兼容性表重做**：移除「国产工具（即梦/Kling）」和「内置工具」列，替换为按工具类型分行的兼容性矩阵
-- **新增 Higgsfield / Hell Grind 背景**：在概述中加入六大核心标准模块说明（CINEDANCE、Lira、ACTING、11 阶闭环、分镜清单模板、踩坑校验图集）
-- 关键词索引新增「漫剧制作」「Veo 提示词」，移除「即梦提示词」
+© 2026 Feihong. 保留所有权利。
 
-更新文件：
-- README.md（v3.1.0）：全面更新工具列表、体裁适配、平台兼容性、FAQ、关键词、changelog
-- SKILL.md（v3.1.0）：移除渠道 B、移除即梦/Higgsfield 说明、体裁适配新增漫剧、更新描述与标签
-- references/01-pipeline-runbook.md：移除渠道 B 整节、体裁适配表新增漫剧、清理即梦引用
-- references/13-deliverable-system.md：移除即梦/Higgsfield/内置工具引用、更新体裁模板与渠道路由
+AIGC Film Studio 由 [Feihong](https://github.com/ifeihong) 开发与维护。部分核心模块依托 Higgsfield 95 分钟全 AI 实拍长片《Hell Grind》全套工业化制作文档搭建。
 
-### v3.0.0 (2026-08-08)
-
-**多语言路由重大升级**
-
-核心变更：
-- **提示词语言 = 用户输入语言**：不再根据目标工具决定提示词语言。用户输入中文 → 中文提示词；输入英文 → 英文提示词；输入日文 → 日文提示词；依此类推
-- 移除旧的语言路由决策表（按目标工具路由的复杂规则）
-- 新增简洁的语言路由规则：提示词语言始终跟随用户在 agent 中输入的语言
-- 始终用英文的部分：block 名称、技术标签、@tag、镜头语言库
-
-更新文件：
-- SKILL.md（v3.0.0）：重写语言路由章节，更新渠道 A 描述、模板描述、注意事项
-- README.md：更新多语言路由章节、FAQ、兼容性说明，新增 v3.0.0 更新日志
-- references/13-deliverable-system.md：重写 §4 语言路由系统，更新 §C.2/C.3 视频提示词语言规则
-- references/01-pipeline-runbook.md：更新摘要描述
-- references/12-lira-image-prompt.md：更新语言说明
-- assets/templates/shot-prompt-skeleton.md：更新模板描述
-
-### v2.5.0 (2026-08-08)
-
-**模型能力知识库升级**
-
-新增能力：
-- 视频模型选用流程（Ask User First）：自动询问用户偏好，按模型能力约束设计分镜时长
-- 视频模型能力感知表：Seedance 2.5（30s）/ Seedance 2.0（15s）/ Kling 3.0（15s）/ Kling 3.0 Omni（15s）/ Veo 3（8s）
-- 图像模型能力感知表：GPT Image 2 / Nano Banana Pro / Nano Banana 2 / Seedream 5.0 Pro 四模型对比与选用速查
-- 视频模型选用决策树：按原生音频同步/物理精确/最长时长/电影级短镜等需求路由
-
-关键修正：
-- 明确 Seedance = 即梦（同一模型不同入口）
-- 明确 Higgsfield 是聚合平台，不是模型
-- Seedream 4.5 → 5.0 Pro（全局替换，13处）：新增商业视觉、图层分离、Seedance 工作流衔接三个角色
-- 语言路由表更新：移除 Higgsfield 作为模型的引用，新增 Kling / Veo 3
-
-更新文件：
-- SKILL.md（v2.5.0）：新增视频模型选用章节、图像模型推荐章节、更新语言路由表
-- references/13-deliverable-system.md：替换模型能力感知表为视频+图像两张表，新增选用流程
-- references/12-lira-image-prompt.md：Seedream 4.5 → 5.0 Pro，更新模型规则节
-- references/00-overview-handbook.md、01-pipeline-runbook.md、README.md：同步模型引用
-
-### v2.4.0 (2026-08-08)
-
-**重大功能升级**
-
-新增能力：
-- AI导演系统：三级输入处理（标题→故事 / 大纲→结构 / 剧本→分镜），支持从一句话标题到完整分镜的创意扩展
-- 交付物体系：五类交付物（资产生图提示词 + 分镜首帧生图提示词 + 分镜视频提示词 + 参考图清单 + 交付物总清单）
-- 时长优化系统：基于动作复杂度/情绪重量/对白长度/镜头运动/叙事节奏五因素决策，感知模型能力
-- 语言路由系统：提示词语言跟随用户对话语言（中文对话→中文提示词）
-- 分镜首帧生图提示词：每镜一张首帧参考图提示词，用于图生视频输入
-
-新增文件：
-- references/13-deliverable-system.md（交付物系统+时长优化+文件组织+语言路由）
-- references/14-ai-director.md（AI导演方法论+三级输入处理+钩子设计）
-- assets/templates/shot-frame-prompt.md（首帧生图提示词模板）
-- assets/templates/deliverable-manifest.md（交付物总清单模板）
-
-### v2.3.0 (2026-08-08)
-
-**UX walkthrough fix release**
-
-BLOCKER: unified descriptor format (colon + 100% matches); clarified behavior-profile shorthand vs full profile; added dark/cinematic vertical Style Prefix; added vertical first-frame exception (medium portrait for 9:16); defined Channel A stage 3-4 deliverables with Seedance-only fallback.
-
-HIGH: added solo/no-dialogue scene guidance; fixed single-light rule to allow ambient+key; added prop reference format; made lens distances flexible ranges; added cross-shot state transition rules; moved Chinese summaries to separate file.
-
-### v2.2.0 (2026-08-08)
-
-- 修复：CINEDANCE 视频提示词架构缺失 CHARACTER ACTING / STYLE / QUALITY 三个 block 的严重 bug
-- 修复：年龄规则矛盾——统一为不写数字，通过体型/穿着/气质暗示
-- 修复：模板路径不一致（`templates/` → `assets/templates/`）
-- 新增：竖屏短视频（9:16）Style Prefix 完整变体
-- 新增：VideoGen 内置渠道 16-block 压缩规则
-- 新增：模式 B 单点支援路由表
-- 优化：README 重写，平台无关化安装说明
-
-### v2.1.0 (2026-08-07)
-
-- 新增：SCALE LAW（尺度锁定法）定义段与模板
-- 优化：README SEO/GEO 优化
-- 清理：内部编辑备注
+本项目仅供学习和创作使用，不保证适用于商业场景。使用本 Skill 生成的任何内容，其版权归属由使用者自行判断和承担。

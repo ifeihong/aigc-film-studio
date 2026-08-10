@@ -31,7 +31,7 @@ agent_created: true
 | 用户说什么 | 加载哪个 reference |
 |---|---|
 | 写视频提示词 / Seedance 提示词 / 视频 prompt | `references/10-cinedance-video-prompt.md` |
-| 写图像提示词 / 画图 prompt / Soul/NBP/Seedream 提示词 | `references/12-lira-image-prompt.md` |
+| 写图像提示词 / 画图 prompt / NBP/Seedream 提示词 | `references/12-lira-image-prompt.md` |
 | 角色表演 / 演技 / 人物太僵 / 死脸 | `references/11-acting-performance.md` |
 | 角色换脸 / 一致性 / 瞬移 / 跳轴 | `references/20-qa-checklists.md` + `assets/templates/geo-spatial-layout.md` |
 | 全流程 / 制片怎么做 | `references/00-overview-handbook.md` + `references/01-pipeline-runbook.md` |
@@ -148,7 +148,7 @@ agent_created: true
 | Seedream 5.0 Pro | 字节跳动 | 图层分离、商业视觉、与 Seedance 配合 |
 
 - 图像模型路由由 LIRA 4-D 方法论自动决定（详见 `references/12-lira-image-prompt.md`）
-- 角色生成 → Soul 2.0 / Cinema Studio AI Cast；地点 → Soul Cinema
+- 角色生成 → GPT Image 2 / Nano Banana 2；地点 → GPT Image 2 / Seedream 5.0 Pro
 - 详见 `references/13-deliverable-system.md` §2 图像模型能力感知表
 
 ## 失败现象对照表（出问题先查这里）
@@ -211,7 +211,7 @@ A <对象> that reads as a large man, or fits comfortably in frame next to a sta
 - `01-pipeline-runbook.md` — 端到端 11 阶段操作规程 + 项目脚手架 + 体裁适配 + 渠道路由。**做完整项目读这个。**
 - `10-cinedance-video-prompt.md` — 视频提示词导演系统：4-D 方法论、16-block 详解、镜头决策树、光学/防漂移、物理与光照锁定、无声 QA。
 - `11-acting-performance.md` — 角色表演系统：核心公理「表演=压力下的行为」、五支柱、眼生命、主档模板、实战范例、坏表演图鉴与 0–5 量表。
-- `12-lira-image-prompt.md` — 图像提示词优化：模型路由（Soul 2.0/Soul Cinema/NBP/Seedream 5.0 Pro/GPT Image 2）、防失败 10 条、手术式编辑模板、各类型骨架。
+- `12-lira-image-prompt.md` — 图像提示词优化：模型路由（GPT Image 2/NBP/Seedream 5.0 Pro/Nano Banana 2）、防失败 10 条、手术式编辑模板、各类型骨架。
 - `20-qa-checklists.md` — 生成前提示词审查（A 视频 / B 图像）+ 生成后 slop 图鉴 + 修复路由。
 - `13-deliverable-system.md` — 交付物系统：资产生图提示词规范、分镜首帧生图提示词、参考图清单、视频/图像模型能力感知表（Seedance/Kling/Veo 3 + GPT Image 2/NBP/Seedream 5.0 Pro）、视频模型选用流程（Ask User First）、时长优化系统（五因素决策）、文件组织规范、语言路由系统。
 - `14-ai-director.md` — AI导演方法论：三级输入处理（标题→故事 / 大纲→结构 / 剧本→分镜）、扩展五步法、钩子设计模板、与12阶段管线集成。

@@ -38,7 +38,7 @@ skill 产出五大类交付物。下表是全局速览，之后逐类详解。
 
 ### A. 资产生图提示词（Asset Image Prompts）
 
-> **目标**：为每个角色、地点、道具产出一份完整的 LIRA 优化图像生成提示词，让用户在 Soul 2.0 / Soul Cinema / NBP / GPT Image 2 / Seedream 5.0 Pro 中生成参考图。
+> **目标**：为每个角色、地点、道具产出一份完整的 LIRA 优化图像生成提示词，让用户在 GPT Image 2 / NBP / Nano Banana 2 / Seedream 5.0 Pro 中生成参考图。
 >
 > **写法遵循**：`12-lira-image-prompt.md` 的 LIRA 4-D 方法论（DECONSTRUCT → DIAGNOSE → DEVELOP → DELIVER）。模型路由规则完全继承 LIRA 的固定路由表。
 
@@ -47,15 +47,15 @@ skill 产出五大类交付物。下表是全局速览，之后逐类详解。
 每份资产生图提示词文件必须包含以下区块：
 
 1. **Target Model Recommendation（目标模型推荐）**
-   - 角色 → **Soul 2.0**（替代方案：Cinema Studio AI Cast，平台内置工具，参数在 UI 设）
-   - 地点/环境 → **Soul Cinema**
+   - 角色 → **GPT Image 2 / Nano Banana 2**
+   - 地点/环境 → **GPT Image 2 / Seedream 5.0 Pro**
    - 道具/产品式物体 → **NBP / GPT Image 2**（真实产品语境）
    - 帧编辑 → 永远先 NBP；纹理 pass → Seedream 5.0 Pro；最细局部 → GPT Image 2
    - 标注理由（为何选这个模型）
 
 2. **Optimized Prompt Text（优化提示词文本）**
    - 按语言路由规则选择中文或英文（见本文件 §4）
-   - 遵循 LIRA 防失败 10 条：自然散文、不堆关键词、正向 > 负向、画幅为 UI 参数、技术光照与材质、60/30/10 配色、Soul ID + 散文锚点、photoreal 防插画漂移、文字/纹身精确处理
+   - 遵循 LIRA 防失败 10 条：自然散文、不堆关键词、正向 > 负向、画幅为 UI 参数、技术光照与材质、60/30/10 配色、descriptor 逐字注入 + 参考图锚定、photoreal 防插画漂移、文字/纹身精确处理
    - 目标长度：≤1500–2000 字符，砍填充
 
 3. **Reference Image Specifications（参考图规格说明）**
@@ -70,7 +70,7 @@ skill 产出五大类交付物。下表是全局速览，之后逐类详解。
 
 5. **Multi-View Requirements（多视角要求）**
 
-**角色（Soul 2.0）— 三视角：**
+**角色（GPT Image 2）— 三视角：**
    - 正面全身（无头）—— 关键反直觉设计：删头使模型仅从特写取脸
    - 背面全身
    - 脸部特写（3/4 视角大肖像优先）
@@ -79,13 +79,13 @@ skill 产出五大类交付物。下表是全局速览，之后逐类详解。
    - 无 `rule of thirds`（角色表豁免）、无 `painterly`、无 `character reference sheet`（插画触发）
    - 详见 `12-lira-image-prompt.md` 角色表模板
 
-**地点（Soul Cinema）— 3/4 视角：**
+**地点（GPT Image 2 / Seedream 5.0 Pro）— 3/4 视角：**
    - 3/4 视角而非正面「美图」——给模型可读深度，覆盖近一整圈角度
    - 标注机位锚点（如 `high angle three-quarter wide shot, camera high above the room looking diagonally down at 45 degrees`）
    - 留一个锚点物（柱子/灯/沙发），调度绑上去
    - 单一光逻辑：一个主光源决定阴影方向；允许环境漫射底光但不产生第二阴影方向
    - 日/夜/雨为独立资产
-   - 宽银幕板用 21:9（Soul Cinema 独有，Soul 2.0 无 21:9）
+   - 宽银幕板用 21:9
 
 **道具（NBP / GPT Image 2）— 多版本：**
    - hero（完整版）/ bloodied（受损版）/ hidden（隐藏状态版）等，各独立资产
@@ -99,13 +99,11 @@ skill 产出五大类交付物。下表是全局速览，之后逐类详解。
 # @mei — 角色生图提示词
 
 ## Target Model
-**Soul 2.0**（角色生成专用；Soul ID 跨生成锁定同一张脸）
-替代方案：Cinema Studio AI Cast（平台内置自动角色表，参数在 UI 设，无需提示词）
+**GPT Image 2**（照片真实感最强；descriptor 逐字注入 + 参考图锚定一致性）
 
 ## Platform Parameters (UI 设，不进提示词)
 - 画幅: 16:9
 - 质量: 2k
-- Soul ID: [如角色已有则填]
 
 ## Optimized Prompt
 
@@ -161,7 +159,7 @@ Photorealistic. NON-IP. Cinematic.
 # @loc_bookstore — 地点生图提示词
 
 ## Target Model
-**Soul Cinema**（电影级质感、自然颗粒、电影美学；支持 21:9；Soul ID 角色可放进场景）
+**GPT Image 2 / Seedream 5.0 Pro**（电影级质感、电影美学；descriptor 逐字注入 + 参考图锚定一致性）
 
 ## Platform Parameters (UI 设，不进提示词)
 - 画幅: 16:9 (宽银幕板用 21:9)
@@ -201,7 +199,7 @@ Photorealistic. NON-IP. Cinematic.
 ## Notes
 - 机位锚点用简单物理措辞，不用 CCTV/鱼眼行话
 - 单一光源逻辑：窗光为主光源，环境漫射为底光
-- Soul Cinema 原生带颗粒——技术块一行寄存器足够
+- GPT Image 2 / Seedream 5.0 Pro 可生成电影级质感——技术块一行寄存器足够
 - 地点空镜正向描述: `Empty interior, still air, no people`
 ```
 
@@ -266,7 +264,7 @@ Photorealistic. NON-IP.
 | 5 | Composition / Framing | 该镜 CAMERA + OPTICS | 画幅、机位高度、角度、主体大小、画面位置 |
 | 6 | Style Prefix (appropriate variant) | `style-prefix.md` | 选合适的 Style Prefix 变体（电影感/竖屏/暗调等） |
 | 7 | Reference Images to Upload | 本文件 §D | 上传哪些角色表/地点表/道具表参考图 |
-| 8 | Target Model Recommendation | LIRA 路由 | 通常 Soul Cinema（含角色的场景帧）；纯环境帧也可 Soul Cinema |
+| 8 | Target Model Recommendation | LIRA 路由 | 通常 GPT Image 2 / Seedream 5.0 Pro（含角色的场景帧）；纯环境帧也可 GPT Image 2 / Seedream 5.0 Pro |
 | 9 | Quality Tags | 固定格式 | `Photorealistic. NON-IP.` + 画幅 |
 
 #### B.2 分镜画面生图提示词的写法规则
@@ -277,8 +275,8 @@ Photorealistic. NON-IP.
 - **首帧生图**：完整场景、电影级光照、角色在位——目的是锁定「这一镜第一帧长什么样」
 
 因此首帧生图提示词：
-- 用 Soul Cinema（不是 Soul 2.0），因为需要电影级场景帧
-- 角色 Soul ID 可放进 Soul Cinema 场景
+- 用 GPT Image 2 / Seedream 5.0 Pro，因为需要电影级场景帧
+- 角色 descriptor + 参考图锚定可保持一致性
 - 光照从该镜的 LIGHTING block 直接取
 - 构图从该镜的 CAMERA + OPTICS block 直接取
 - 描述角色「已在」位置（状态非过渡——见 CINEDANCE §状态非过渡）
@@ -356,7 +354,7 @@ Technical: High detail. No jitter.
 Audio: Environmental SFX only. No music. No subtitles.
 
 ## Reference Images to Upload
-1. @mei face close-up (3/4 portrait) — Soul ID identity anchor
+1. @mei face close-up (3/4 portrait) — identity anchor
 2. @mei front headless full body — body/clothing reference
 3. @loc_bookstore main view — location geography and texture reference
 4. @prop_letter hero version — prop reference
@@ -364,12 +362,11 @@ Audio: Environmental SFX only. No music. No subtitles.
 Upload order: face → body → location → prop
 
 ## Target Model
-**Soul Cinema**（电影级场景帧；Soul ID 角色可放进场景）
+**GPT Image 2 / Seedream 5.0 Pro**（电影级场景帧；descriptor + 参考图锚定一致性）
 
 ## Platform Parameters (UI 设，不进提示词)
 - 画幅: 9:16
 - 质量: 2k
-- Soul ID: [mei's Soul ID]
 
 ## Quality Tags
 Photorealistic. NON-IP. 9:16.
@@ -469,7 +466,7 @@ Photorealistic. NON-IP. 9:16.
 ### 角色参考图
 | 顺序 | @tag | 图片 | 用途 |
 |---|---|---|---|
-| 1 | @mei | face close-up (3/4 portrait) | Soul ID 身份锚点 — 脸的唯一取源 |
+| 1 | @mei | face close-up (3/4 portrait) | 身份锚点 — 脸的唯一取源 |
 | 2 | @mei | front headless full body | 身体/服装/比例参考 |
 | 3 | @mei | back view | 背面参考（本镜角色背对摄影机） |
 
@@ -642,7 +639,7 @@ Photorealistic. NON-IP. 9:16.
 
 ### 首帧图（图生视频模式）
 - 文件: 05-generations/shot_001/first_frame.png
-- 来源: 用 04-prompts/image/shot_001_frame.md 在 Soul Cinema 生成
+- 来源: 用 04-prompts/image/shot_001_frame.md 在 GPT Image 2 / Seedream 5.0 Pro 生成
 - 用途: 图生视频首帧输入
 ```
 
@@ -727,8 +724,8 @@ Photorealistic. NON-IP. 9:16.
 
 | 任务 | 首选模型 | 理由 |
 |---|---|---|
-| 角色生成（选角表/肖像） | Soul 2.0 / Cinema Studio AI Cast | 角色生成专用，Soul ID 跨生成锁定 |
-| 地点/环境/电影帧 | Soul Cinema | 电影级质感，支持 21:9 |
+| 角色生成（选角表/肖像） | GPT Image 2 / Nano Banana 2 | 照片真实感、角色一致性 |
+| 地点/环境/电影帧 | GPT Image 2 / Seedream 5.0 Pro | 电影级质感 |
 | 道具/产品式物体 | NBP / GPT Image 2 | 真实产品语境，精确文字渲染 |
 | 帧编辑（任何改动） | **NBP 永远第一** | 原图的后期处理，最小改动 |
 | 渣 AI 纹理修复 | Seedream 5.0 Pro | 纹理 pass（皮肤/布料/表面） |

@@ -93,7 +93,7 @@
 - 资产图包：按 `01-assets/` 结构打包，文件名 = @tag，与提示词内 ACTIVE REFERENCES 一一对应
 
 **阶段3-4交付形态**（用户在外部工具生成时）：
-- 阶段3：为每个资产产出 LIRA 格式的图像提示词（按 `12-lira-image-prompt.md`），让用户可以在 Soul Cinema / Nano Banana Pro / Seedream / GPT Image 2 中生成参考图。提示词写入对应资产的 .md 文件中（在 Descriptor 段下方加"图像生成提示词"段）。
+- 阶段3：为每个资产产出 LIRA 格式的图像提示词（按 `12-lira-image-prompt.md`），让用户可以在 GPT Image 2 / Nano Banana Pro / Seedream 5.0 Pro / Nano Banana 2 中生成参考图。提示词写入对应资产的 .md 文件中（在 Descriptor 段下方加"图像生成提示词"段）。
 - 阶段4：产出"资产压力测试操作指引"文档（中文，给用户看的），包含：每资产测试用简单 prompt、参考图上传顺序、10/10 可识别判定标准、失败时 descriptor 修改建议。
 - 仅有 Seedance 的用户降级方案：在 Seedance 中用图生视频模式，先用简单 descriptor 生成 3-5 张角色静态图，选最可信的一张作为后续视频的角色参考图。
 - 无多参考图锚点的工具（如 Kling、Veo）：使用图生视频模式 + descriptor 逐字注入，是一致性降级下的最强策略。
@@ -113,7 +113,7 @@
 ## 7. 交付物体系（详见 `13-deliverable-system.md`）
 
 ### 交付物五类
-1. **资产生图提示词**：每个角色/地点/道具的 LIRA 优化图像提示词，让用户可在 Soul/NBP/Seedream/GPT Image 中生成参考图
+1. **资产生图提示词**：每个角色/地点/道具的 LIRA 优化图像提示词，让用户可在 GPT Image 2 / NBP / Seedream 5.0 Pro / Nano Banana 2 中生成参考图
 2. **分镜首帧生图提示词**：每镜一张首帧参考图提示词，用于图生视频输入或视觉锚定
 3. **分镜视频提示词**：每镜 CINEDANCE 16-block 提示词
 4. **参考图清单**：每镜用哪些参考图、上传顺序

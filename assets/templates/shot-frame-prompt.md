@@ -10,7 +10,7 @@
 
 ### 基本信息
 - **对应视频镜号**：shot_<NNN>
-- **目标模型**：Soul 2.0 / Soul Cinema / Nano Banana Pro / GPT Image 2（按 LIRA 路由）
+- **目标模型**：GPT Image 2 / Nano Banana Pro / Nano Banana 2 / Seedream 5.0 Pro（按 LIRA 路由）
 - **画幅**：<9:16 / 16:9 / 1:1>（与视频镜一致）
 - **用途**：首帧参考图（图生视频输入 / 视觉参考锚定）
 
