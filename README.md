@@ -5,6 +5,10 @@
 [![Languages](https://img.shields.io/badge/languages-Multi%20%2F%20ZH%20%2F%20EN%20%2F%20JA-brightgreen)]()
 [![Models](https://img.shields.io/badge/models-Seedance%202.5%20%7C%20Kling%203.0%20%7C%20Veo%203%20%7C%20GPT%20Image%202-orange)]()
 
+<p align="center">
+  <img src="assets/hero.png" alt="AIGC Film Studio - AI 影视制片系统：从一句话创意到成片交付，支持电影/短剧/漫剧/短视频，12阶段工作流，多模型接入" width="100%">
+</p>
+
 > **AI 视频生成全流程制片 Skill** — 从一句话标题到完整剧本，任何输入级别都能转为 AIGC 可拍分镜。自动解析人物/场景/道具，生成电影级视频与图像提示词，锁定跨镜头一致性，智能优化每镜时长，按用户语言交付提示词。支持外部工具（Nano Banana / GPT Image / Seedream / Seedance / Kling / Veo），覆盖 AI 电影、短剧、漫剧、短视频。核心解决 AI 视频最致命的问题：**一致性崩坏**（角色换脸、场景瞬移、死脸、身份漂移）。
 
 ---
