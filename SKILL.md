@@ -153,17 +153,17 @@ agent_created: true
 
 ## 失败现象对照表（出问题先查这里）
 
-| 失败现象 | 根因 | 解法所在 |
-|---|---|---|
-| 角色换脸 / 换衣 | 描述不完整、参考被误用、正面图未去头 | handbook §3 + `20-qa` Part C#5 |
-| 人物瞬移 / 跳轴 | 缺 GEO / 缺首秒 wide / 切后未重述位置 | `templates/geo-spatial-layout.md` + `20-qa` C#6 |
-| 表演像死人 / 假 | 写感受非行为、脸无眼神光 | `11-acting` + `20-qa` C#4/#13 |
-| 图像崩坏 / 多指 / 文字乱码 | 模型弱点未规避 | `12-lira` + `20-qa` C#1–3 |
-| 巨人越画越矮 | 缺尺度锚点 | SKILL §SCALE LAW + `20-qa` C#8 |
-| 多人 / 克隆家具 / 自带配乐 / 自创台词 | 约束缺失 | `20-qa` C#10–12 |
-| 塑料皮 / 对称脸 | 图像整张二次过模型 | `20-qa` C#7（点修改铁律） |
+| 失败现象 | 错误码 | 根因 | 解法所在 |
+|---|---|---|---|
+| 角色换脸 / 换衣 | `F-ID-DRIFT` / `F-STATE-DRIFT` | 描述不完整、参考被误用、正面图未去头 | handbook §3 + `20-qa` Part C#5 |
+| 人物瞬移 / 跳轴 | `F-AXIS` / `F-SPATIAL-RESET` | 缺 GEO / 缺首秒 wide / 切后未重述位置 | `templates/geo-spatial-layout.md` + `20-qa` C#6 |
+| 表演像死人 / 假 | `F-PERFORMANCE` | 写感受非行为、脸无眼神光 | `11-acting` + `20-qa` C#4/#13 |
+| 图像崩坏 / 多指 / 文字乱码 | `F-MATERIAL` / `F-AUDIO-POLLUTION` | 模型弱点未规避 | `12-lira` + `20-qa` C#1–3 |
+| 巨人越画越矮 | — （SCALE LAW） | 缺尺度锚点 | SKILL §SCALE LAW + `20-qa` C#8 |
+| 多人 / 克隆家具 / 自带配乐 / 自创台词 | `F-DUP-SUBJECT` / `F-PROP-DUP` / `F-AUDIO-POLLUTION` / `F-DIALOGUE-TEXT` | 约束缺失 | `20-qa` C#10–12 |
+| 塑料皮 / 对称脸 | `F-MATERIAL` | 图像整张二次过模型 | `20-qa` C#7（点修改铁律） |
 
-完整质检关：`references/20-qa-checklists.md`（生成前 Part A/B，生成后 Part C，修复路由 Part D）。
+完整质检关：`references/20-qa-checklists.md`（生成前 Part A/B，生成后 Part C，修复路由 Part D）+ `references/31-failure-codes.md`（33 错误码 + 责任层决策树 + 复测纪律）。
 
 ## SCALE LAW（尺度锁定法）
 
@@ -215,6 +215,7 @@ A <对象> that reads as a large man, or fits comfortably in frame next to a sta
 - `20-qa-checklists.md` — 生成前提示词审查（A 视频 / B 图像）+ 生成后 slop 图鉴 + 修复路由。
 - `13-deliverable-system.md` — 交付物系统：资产生图提示词规范、分镜首帧生图提示词、参考图清单、视频/图像模型能力感知表（Seedance/Kling/Veo 3 + GPT Image 2/NBP/Seedream 5.0 Pro）、视频模型选用流程（Ask User First）、时长优化系统（五因素决策）、文件组织规范、语言路由系统。
 - `14-ai-director.md` — AI导演方法论：三级输入处理（标题→故事 / 大纲→结构 / 剧本→分镜）、扩展五步法、钩子设计模板、与12阶段管线集成。
+- `31-failure-codes.md` — 失败诊断错误码体系：6 类 33 码（资产/空间/动作/摄影/对白/光色）+ 责任层决策树（6 层先定位再修复）+ 复测纪律（最小化修复 + 迭代记录格式）+ Part C slop 映射表。
 
 ## 五条黄金规则（每条都因某帧失败而生）
 

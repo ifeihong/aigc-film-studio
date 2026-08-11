@@ -165,7 +165,8 @@ AI 导演在 12 阶段管线中位于阶段 0.5（需求澄清后、剧本解析
 
 - **生成前审查**：提示词审查清单（视频 Part A / 图像 Part B），过审才生成
 - **生成后清理**：14 种典型 AI 缺陷 slop 图鉴（多指 / 沸腾纹理 / 假文字 / 死脸 / 瞬移……），脸手优先清零
-- **修复路由**：问题 → 根因 → 修复路径（详见下方[失败现象对照表](#失败现象对照表)）
+- **失败诊断错误码**：6 类 33 码机器可读诊断体系（`F-ID-DRIFT` 换脸 / `F-AXIS` 跳轴 / `F-PERFORMANCE` 死脸……），先按 6 层责任层决策树定位故障层，再用错误码命名问题，最后按复测纪律最小化修复
+- **修复路由**：问题 → 错误码 → 根因 → 修复路径（详见下方[失败现象对照表](#失败现象对照表)）
 - **迭代纪律**：surgical 一次改一行，进日志；10-15 次不成则简化镜头（拆镜/删动作/换角度）
 
 ---
@@ -346,17 +347,17 @@ AI 导演在 12 阶段管线中位于阶段 0.5（需求澄清后、剧本解析
 
 出问题先查这里：
 
-| 失败现象 | 根因 | 解法所在 |
-|---|---|---|
-| 角色换脸 / 换衣 | 描述不完整、参考被误用、正面图未去头 | handbook §3 + `20-qa` Part C#5 |
-| 人物瞬移 / 跳轴 | 缺 GEO / 缺首秒 wide / 切后未重述位置 | `geo-spatial-layout.md` + `20-qa` C#6 |
-| 表演像死人 / 假 | 写感受非行为、脸无眼神光 | `11-acting` + `20-qa` C#4/#13 |
-| 图像崩坏 / 多指 / 文字乱码 | 模型弱点未规避 | `12-lira` + `20-qa` C#1-3 |
-| 巨人越画越矮 | 缺尺度锚点 | SKILL §SCALE LAW + `20-qa` C#8 |
-| 多人 / 克隆家具 / 自带配乐 / 自创台词 | 约束缺失 | `20-qa` C#10-12 |
-| 塑料皮 / 对称脸 | 图像整张二次过模型 | `20-qa` C#7（点修改铁律） |
+| 失败现象 | 错误码 | 根因 | 解法所在 |
+|---|---|---|---|
+| 角色换脸 / 换衣 | `F-ID-DRIFT` / `F-STATE-DRIFT` | 描述不完整、参考被误用、正面图未去头 | handbook §3 + `20-qa` Part C#5 |
+| 人物瞬移 / 跳轴 | `F-AXIS` / `F-SPATIAL-RESET` | 缺 GEO / 缺首秒 wide / 切后未重述位置 | `geo-spatial-layout.md` + `20-qa` C#6 |
+| 表演像死人 / 假 | `F-PERFORMANCE` | 写感受非行为、脸无眼神光 | `11-acting` + `20-qa` C#4/#13 |
+| 图像崩坏 / 多指 / 文字乱码 | `F-MATERIAL` / `F-AUDIO-POLLUTION` | 模型弱点未规避 | `12-lira` + `20-qa` C#1-3 |
+| 巨人越画越矮 | — （SCALE LAW） | 缺尺度锚点 | SKILL §SCALE LAW + `20-qa` C#8 |
+| 多人 / 克隆家具 / 自带配乐 / 自创台词 | `F-DUP-SUBJECT` / `F-PROP-DUP` / `F-AUDIO-POLLUTION` / `F-DIALOGUE-TEXT` | 约束缺失 | `20-qa` C#10-12 |
+| 塑料皮 / 对称脸 | `F-MATERIAL` | 图像整张二次过模型 | `20-qa` C#7（点修改铁律） |
 
-完整质检关：`references/20-qa-checklists.md`（生成前 Part A/B，生成后 Part C，修复路由 Part D）。
+完整质检关：`references/20-qa-checklists.md`（生成前 Part A/B，生成后 Part C，修复路由 Part D）+ `references/31-failure-codes.md`（33 错误码 + 责任层决策树 + 复测纪律）。
 
 ---
 
@@ -374,7 +375,8 @@ aigc-film-studio/
 │   ├── 12-lira-image-prompt.md      # 图像提示词优化（4-D 方法论 + 模型路由 + 防失败）
 │   ├── 13-deliverable-system.md     # 交付物系统 + 时长优化 + 文件组织 + 语言路由 + 模型能力表
 │   ├── 14-ai-director.md            # AI导演方法论 + 三级输入处理 + 钩子设计
-│   └── 20-qa-checklists.md          # 生成前审查 + 生成后 slop 图鉴 + 修复路由
+│   ├── 20-qa-checklists.md          # 生成前审查 + 生成后 slop 图鉴 + 修复路由
+│   └── 31-failure-codes.md          # 失败诊断错误码（6类33码 + 责任层决策树 + 复测纪律）
 └── assets/templates/                # 13 个可复制模板
     ├── project-structure.md         # 项目目录结构 + 命名规范
     ├── asset-registry.md            # 资产注册表 + @tag 命名词典
